@@ -1,10 +1,42 @@
 <div>
     <h2>Filtri:</h2>
-    <form [formGroup]="form" (ngSubmit)="login()">
-        <mat-form-field appearance="fill">
-            <mat-label>Fill form field</mat-label>
-            <input matInput placeholder="Placeholder" formControlName="category">
-            <mat-hint>Hint</mat-hint>
+    <form [formGroup]="form" (ngSubmit)="filtra()">
+        <mat-form-field >
+            <mat-label>Categoria:</mat-label>
+            <mat-select formControlName="category">
+                <mat-option selected disabled value="">
+                    Scegli un'opzione
+                </mat-option>
+                <mat-option [value]="cat" *ngFor="let cat of categorie">
+                    {{cat}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
+        <br>
+        <span>Prezzo:</span>
+        <br>
+        <mat-form-field>
+            <mat-label>Min:</mat-label>
+            <input matInput type="number" formControlName="minPrice">
+            <span matSuffix>€</span>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Max:</mat-label>
+            <input matInput type="number" formControlName="maxPrice">
+            <span matSuffix>€</span>
+        </mat-form-field>
+        <span>Recensioni:</span>
+        <i *ngFor="let item of [].constructor(5);let i=index" 
+            [ngClass]="i+1<=minStar ?
+            'bi bi-star-fill':'bi bi-star'"
+            (click)="minStar=i+1"
+            style="color: rgb(255, 196, 0);font-size: 16px;"
+        ></i>
+        <button type="submit" class="btn btn-warning">
+            Filtra
+        </button>
+        <button (click)="reset()" class="btn btn-danger">
+            Reset
+        </button>
     </form>  
 </div>

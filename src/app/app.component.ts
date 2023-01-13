@@ -11,12 +11,17 @@ import { Prodotto } from './prodotto/prodotto';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+  
   prodotti:Prodotto[] = []
   loading:boolean=true
   constructor(
     private api:ApiService, private dialog:MatDialog){}
-  
+    
+  aggiornaProdotti(prodottiFiltrati:Prodotto[]) {
+    console.log(prodottiFiltrati);
+    
+    this.prodotti=prodottiFiltrati
+  }
   apriModal(tipo:string){
     //tipo mi indica se apro il carrello o i preferiti
     this.dialog.open(CarelloComponent,{

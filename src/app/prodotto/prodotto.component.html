@@ -37,9 +37,12 @@
             <i *ngIf="eNelCarrello()" class="bi bi-cart-fill"></i>
         </button>
 
-        <button class="btn" (click)="aggiungiApreferiti()">
-            <i *ngIf="!eNeiPreferiti()" class="bi bi-balloon-heart"></i>
-            <i *ngIf="eNeiPreferiti()"  class="bi bi-balloon-heart-fill"></i>
+        <button *ngIf="!eNeiPreferiti()" class="btn" (click)="aggiungiApreferiti()">
+            <i  class="bi bi-balloon-heart"></i>
+        </button>
+
+        <button *ngIf="eNeiPreferiti()" class="btn" (click)="rimuoviDapreferiti()">
+            <i class="bi bi-balloon-heart-fill"></i>
         </button>
         <button class="btn btn-md btn-primary" mat-button>Acquista</button>
     </mat-card-actions>

@@ -5,6 +5,12 @@ import { Prodotto } from './prodotto/prodotto';
   providedIn: 'root'
 })
 export class PreferitiService {
+  rimuovi(data: Prodotto) {
+    let indice = this.inPreferiti(data.id)
+    const preferiti = this.leggi()
+    preferiti.splice(indice,1)
+    localStorage.setItem('preferiti',JSON.stringify(preferiti))
+  }
 
   constructor() { }
 

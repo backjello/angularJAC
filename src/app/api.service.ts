@@ -14,4 +14,10 @@ export class ApiService {
       "https://dummyjson.com/products")
   }
 
+  getCategories():Observable<string[]>{
+    return this.http.get<any>(
+      "https://dummyjson.com/products/categories"
+    )
+  }
+
 }

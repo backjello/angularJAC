@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card style="height: 100%;">
     <mat-card-header>
         <mat-card-title>
             {{data.title}}
@@ -37,9 +37,9 @@
             <i *ngIf="eNelCarrello()" class="bi bi-cart-fill"></i>
         </button>
 
-        <button class="btn" (click)="preferito=!preferito">
-            <i *ngIf="!preferito" class="bi bi-balloon-heart"></i>
-            <i *ngIf="preferito"  class="bi bi-balloon-heart-fill"></i>
+        <button class="btn" (click)="aggiungiApreferiti()">
+            <i *ngIf="!eNeiPreferiti()" class="bi bi-balloon-heart"></i>
+            <i *ngIf="eNeiPreferiti()"  class="bi bi-balloon-heart-fill"></i>
         </button>
         <button class="btn btn-md btn-primary" mat-button>Acquista</button>
     </mat-card-actions>

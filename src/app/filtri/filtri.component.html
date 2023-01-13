@@ -1,0 +1,10 @@
+<div>
+    <h2>Filtri:</h2>
+    <form [formGroup]="form" (ngSubmit)="login()">
+        <mat-form-field appearance="fill">
+            <mat-label>Fill form field</mat-label>
+            <input matInput placeholder="Placeholder" formControlName="category">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </form>  
+</div>

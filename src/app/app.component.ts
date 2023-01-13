@@ -17,8 +17,14 @@ export class AppComponent implements OnInit {
   constructor(
     private api:ApiService, private dialog:MatDialog){}
   
-  apriModal(){
-    this.dialog.open(CarelloComponent)
+  apriModal(tipo:string){
+    //tipo mi indica se apro il carrello o i preferiti
+    this.dialog.open(CarelloComponent,{
+      minWidth:"80%",
+      data:{
+        tipo:tipo
+      }
+    })
   }
 
   ngOnInit(): void {

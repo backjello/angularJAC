@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CarrelloStorageService } from '../carrello-storage.service';
+import { PreferitiService } from '../preferiti.service';
 import { Prodotto } from './prodotto';
 
 @Component({
@@ -9,18 +10,25 @@ import { Prodotto } from './prodotto';
 })
 export class ProdottoComponent {
   
-  constructor(private carrello:CarrelloStorageService) { }
-  
-  @Input() data!:Prodotto
-  preferito:boolean = false
-  inCarrello: boolean = false;
-
-  aggiungiAcarrello():void{
-    this.carrello.salva(this.data)
-  }
-  
+  constructor(private carrello:CarrelloStorageService,
+    private preferiti:PreferitiService) { }
+    
+    @Input() data!:Prodotto
+    preferito:boolean = false
+    inCarrello: boolean = false;
+    
+    aggiungiAcarrello():void{
+      this.carrello.salva(this.data)
+    }
+    aggiungiApreferiti() {
+      this.preferiti.salva(this.data)
+    }
+    
   eNelCarrello():boolean{
     return this.carrello.inCarrello(this.data.id) >= 0
+  }
+  eNeiPreferiti():boolean{
+    return this.preferiti.inPreferiti(this.data.id)>=0
   }
 
   mostraDescrizione():string{

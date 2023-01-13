@@ -1,15 +1,71 @@
 <h1 matDialogTitle >Carrello</h1>
 <div matDialogContent >
-    <span>I prodotti nel tuo carrello</span>
-    <div>
-        
+    <span *ngIf="tipo=='carrello'" >{{prodotti.length>0 ?
+         "I prodotti nel tuo carrello" 
+         : "Non ci sono prodotti nel carrello"}}
+    </span>
+    <span *ngIf="tipo=='preferiti'" >{{prodotti.length>0 ?
+        "I prodotti che preferisci" 
+        : "non ci sono prodotti fra i preferiti"}}
+   </span>
+    <div *ngIf="prodotti.length>0">
+        <table mat-table [dataSource]="prodotti" >
+
+            <ng-container matColumnDef="img">
+                <th mat-header-cell *matHeaderCellDef >Img</th>
+                <td mat-cell *matCellDef="let prod" >
+                    <img [src]="prod.thumbnail">
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef >Nome</th>
+                <td mat-cell *matCellDef="let prod">{{prod.title}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="descrizione">
+                <th mat-header-cell *matHeaderCellDef >Descrizione</th>
+                <td mat-cell *matCellDef="let prod">{{prod.description}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="prezzo">
+                <th mat-header-cell *matHeaderCellDef >Prezzo</th>
+                <td mat-cell *matCellDef="let prod">{{prod.price  | currency:'EUR'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="quantita">
+                <th mat-header-cell *matHeaderCellDef >QT</th>
+                <td mat-cell *matCellDef="let prod">{{prod.quantity}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="totale">
+                <th mat-header-cell *matHeaderCellDef >Tot.</th>
+                <td mat-cell *matCellDef="let prod">
+                    {{prod.quantity * prod.price | currency:'EUR'}}
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="colonneMostrate"></tr>
+            <tr mat-row *matRowDef="let row;columns :colonneMostrate"></tr>
+
+        </table>
+
+        <div class="row" *ngIf="tipo=='carrello'">
+            <div class="col-8">
+                Totale:
+            </div>
+            <div class="col-4">
+                {{totaleCarrello() | currency:"EUR" }}
+            </div>
+        </div>
+
     </div>
 </div>
 <div matDialogActions class="row">
     <button class="btn btn-secondary col-4" (click)="chiudi()">
         Chiudi
     </button>
-    <button class="btn btn-danger col-4" (click)="svuotaCarrello()">
+    <button class="btn btn-danger col-4" (click)="svuota()">
         Svuota
     </button>
     <button class="btn btn-success col-4"  >

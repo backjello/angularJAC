@@ -1,12 +1,18 @@
-<button class="btn" (click)="apriModal()">Carrello</button>
+<button class="btn btn-primary" (click)="apriModal('carrello')">Carrello</button>
+<button class="btn btn-danger" (click)="apriModal('preferiti')">preferiti</button>
 
 <div class="row">
-  <app-prodotto 
-    *ngFor="let prodotto of prodotti"
-    [data]="prodotto"
-    class="col-3"
-    >
-  </app-prodotto>
+  <div class="col-3">
+    <app-filtri></app-filtri>
+  </div>
+  <div class="col-9 row">
+    <app-prodotto
+      *ngFor="let prodotto of prodotti"
+      [data]="prodotto"
+      class="col-3 py-1 px-2"
+      >
+    </app-prodotto>
+  </div>
 </div>
 
 <mat-spinner *ngIf="loading" ></mat-spinner>

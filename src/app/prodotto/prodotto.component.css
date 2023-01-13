@@ -1,0 +1,19 @@
+.prezzoScontato{
+    text-decoration: line-through;
+    color: gray;
+    font-size: 12px;
+}
+.nuovoPrezzo{
+    font-size: 16px;
+    color: rgb(0, 96, 0);
+    font-weight: bold;
+}
+.scontoPercentuale{
+    font-size: 16px;
+    font-weight: bold;
+}
+.anteprima{
+    max-width: 100%;
+}
+
+

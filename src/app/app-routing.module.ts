@@ -11,6 +11,10 @@ const routes: Routes = [
     component: PaginaProdottoComponent
   },
   {
+    path:'home/:ricerca',
+    component:HomeComponent
+  },
+  {
     path:'home',
     component:HomeComponent
   },

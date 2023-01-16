@@ -1,6 +1,9 @@
 <div class="row" *ngIf="!loading">
     <div class="col-md-6">
-        <img [src]="prodotto.images[0]">
+        <ng-image-slider 
+            [images]="immagini"
+        >
+        </ng-image-slider>
     </div>
     <div class="col-md-6">
         <h2>{{prodotto.title}}</h2>

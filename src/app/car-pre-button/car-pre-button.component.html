@@ -1,0 +1,12 @@
+<button *ngIf="mode=='carrello'" class="btn" (click)="aggiungiAcarrello()">
+    <i *ngIf="!eNelCarrello()" class="bi bi-cart"></i>
+    <i *ngIf="eNelCarrello()" class="bi bi-cart-fill"></i>
+</button>
+
+<button *ngIf="mode=='preferiti'" class="btn" 
+    (click)="eNeiPreferiti() ? 
+        rimuoviDapreferiti() : aggiungiApreferiti()"
+    >
+        <i *ngIf="!eNeiPreferiti()" class="bi bi-balloon-heart"></i>
+        <i *ngIf="eNeiPreferiti()" class="bi bi-balloon-heart-fill"></i>
+</button>

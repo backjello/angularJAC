@@ -32,18 +32,16 @@
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button class="btn" (click)="aggiungiAcarrello()">
-            <i *ngIf="!eNelCarrello()" class="bi bi-cart"></i>
-            <i *ngIf="eNelCarrello()" class="bi bi-cart-fill"></i>
-        </button>
+        
+        <app-car-pre-button
+            [data]="data"
+            [mode]="'carrello'"
+        ></app-car-pre-button>
 
-        <button *ngIf="!eNeiPreferiti()" class="btn" (click)="aggiungiApreferiti()">
-            <i  class="bi bi-balloon-heart"></i>
-        </button>
-
-        <button *ngIf="eNeiPreferiti()" class="btn" (click)="rimuoviDapreferiti()">
-            <i class="bi bi-balloon-heart-fill"></i>
-        </button>
+        <app-car-pre-button
+            [data]="data"
+            [mode]="'preferiti'"
+        ></app-car-pre-button>
 
         <button class="btn btn-md btn-primary" mat-button>Acquista</button>
         

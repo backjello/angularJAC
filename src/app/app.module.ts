@@ -20,7 +20,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
-import { HeaderComponent } from './header/header.component'
+import { HeaderComponent } from './header/header.component';
+import { CarPreButtonComponent } from './car-pre-button/car-pre-button.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HeaderComponent } from './header/header.component'
     PaginaProdottoComponent,
     NotFoundComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    CarPreButtonComponent
   ],
   imports: [
     MatInputModule,

@@ -8,6 +8,15 @@
         <span>Marca: {{prodotto.brand}}</span>
         <span>Categoria: {{prodotto.category}}</span>
         <span>Prezzo: {{prodotto.price | currency:"EUR"}}</span>
+        <br>
+        <app-car-pre-button
+            [mode]="'carrello'"
+            [data]="prodotto"
+        ></app-car-pre-button>
+        <app-car-pre-button
+            [mode]="'preferiti'"
+            [data]="prodotto"
+        ></app-car-pre-button>
     </div>
 </div>
 

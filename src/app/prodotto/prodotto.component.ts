@@ -9,9 +9,7 @@ import { Prodotto } from './prodotto';
   styleUrls: ['./prodotto.component.css']
 })
 export class ProdottoComponent {
-  rimuoviDapreferiti() {
-    this.preferiti.rimuovi(this.data)
-  }
+  
 
   constructor(private carrello: CarrelloStorageService,
     private preferiti: PreferitiService) { }
@@ -20,20 +18,7 @@ export class ProdottoComponent {
   preferito: boolean = false
   inCarrello: boolean = false;
 
-  aggiungiAcarrello(): void {
-    this.carrello.salva(this.data)
-  }
-  aggiungiApreferiti() {
-    this.preferiti.salva(this.data)
-  }
-
-  eNelCarrello(): boolean {
-    return this.carrello.inCarrello(this.data.id) >= 0
-  }
-  eNeiPreferiti(): boolean {
-    return this.preferiti.inPreferiti(this.data.id) >= 0
-  }
-
+  
   mostraDescrizione(): string {
     const LIMITE = 50
     if (this.data.description.length <= 50)

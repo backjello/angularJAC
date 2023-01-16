@@ -37,7 +37,7 @@ export class CarelloComponent {
   }
 
   svuota() {
-    if(this.tipo=='carello')
+    if(this.tipo=='carrello')
       this.carrelloService.svuota()
     else
       this.preferitiService.svuota()

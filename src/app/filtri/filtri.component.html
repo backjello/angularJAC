@@ -1,4 +1,4 @@
-<div>
+<div class="px-2">
     <h2>Filtri:</h2>
     <form [formGroup]="form" (ngSubmit)="filtra()">
         <mat-form-field >
@@ -15,28 +15,34 @@
         <br>
         <span>Prezzo:</span>
         <br>
-        <mat-form-field>
+        <mat-form-field class="w-50 px-3">
             <mat-label>Min:</mat-label>
             <input matInput type="number" formControlName="minPrice">
             <span matSuffix>€</span>
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="w-50 px-3">
             <mat-label>Max:</mat-label>
             <input matInput type="number" formControlName="maxPrice">
             <span matSuffix>€</span>
         </mat-form-field>
-        <span>Recensioni:</span>
+        <br>
+        <span class="mr-4">Recensioni:</span>
         <i *ngFor="let item of [].constructor(5);let i=index" 
-            [ngClass]="i+1<=minStar ?
-            'bi bi-star-fill':'bi bi-star'"
-            (click)="minStar=i+1"
-            style="color: rgb(255, 196, 0);font-size: 16px;"
+        [ngClass]="i+1<=minStar ?
+        'bi bi-star-fill':'bi bi-star'"
+        (click)="minStar=i+1"
+        style="color: rgb(255, 196, 0);font-size: 16px;"
         ></i>
-        <button type="submit" class="btn btn-warning">
-            Filtra
-        </button>
-        <button (click)="reset()" class="btn btn-danger">
-            Reset
-        </button>
+        <br>
+        <hr>
+        <div class="row g-0 px-3">
+            <button type="submit" class="btn btn-warning col-md-5">
+                Filtra
+            </button>
+            <div class="col-md-2"></div>
+            <button type="button" (click)="reset()" class="btn btn-danger col-md-5">
+                Reset
+            </button>
+        </div>
     </form>  
 </div>

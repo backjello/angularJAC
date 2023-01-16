@@ -51,10 +51,10 @@
         </table>
 
         <div class="row" *ngIf="tipo=='carrello'">
-            <div class="col-8">
+            <div class="col-md-8">
                 Totale:
             </div>
-            <div class="col-4">
+            <div class="col-md-4">
                 {{totaleCarrello() | currency:"EUR" }}
             </div>
         </div>
@@ -62,13 +62,13 @@
     </div>
 </div>
 <div matDialogActions class="row">
-    <button class="btn btn-secondary col-4" (click)="chiudi()">
+    <button class="btn btn-secondary col-md-4" (click)="chiudi()">
         Chiudi
     </button>
-    <button class="btn btn-danger col-4" (click)="svuota()">
+    <button class="btn btn-danger col-md-4" (click)="svuota()">
         Svuota
     </button>
-    <button class="btn btn-success col-4"  >
+    <button class="btn btn-success col-md-4"  >
         Checkout
     </button>
 </div>

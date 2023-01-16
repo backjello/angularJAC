@@ -1,0 +1,18 @@
+
+<div class="row m-0">
+  <div class="col-md-3">
+    <app-filtri [prodotti]="prodotti"
+    (filtriApplicati)="aggiornaProdotti($event)"
+    ></app-filtri>
+  </div>
+  <div class="col-md-9 row">
+    <app-prodotto
+      *ngFor="let prodotto of prodottiFiltrati"
+      [data]="prodotto"
+      class="col-md-3 py-1 px-2"
+      >
+    </app-prodotto>
+  </div>
+</div>
+
+<mat-spinner *ngIf="loading" ></mat-spinner>

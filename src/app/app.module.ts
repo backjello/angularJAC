@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { CanecardComponent } from './canecard/canecard.component'
 import { HttpClientModule } from '@angular/common/http';
 import { ProdottoComponent } from './prodotto/prodotto.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
@@ -17,15 +16,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FiltriComponent } from './filtri/filtri.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input'
-import {MatSelectModule} from '@angular/material/select'
+import {MatSelectModule} from '@angular/material/select';
+import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    CanecardComponent,
     ProdottoComponent,
     CarelloComponent,
-    FiltriComponent
+    FiltriComponent,
+    PaginaProdottoComponent,
+    NotFoundComponent,
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     MatInputModule,

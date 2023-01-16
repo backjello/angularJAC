@@ -48,15 +48,12 @@ export class FiltriComponent {
 
       return categoria && prezzoMin && prezzoMax && rating 
     })
-    console.log(this.prodotti);
     
     this.filtriApplicati.emit(prodottiF)
   }
   reset(){
     this.form.reset()
     this.minStar=-1
-    console.log(this.prodotti);
-    
     this.filtriApplicati.emit(this.prodotti)
   }
 }

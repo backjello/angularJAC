@@ -1,0 +1,11 @@
+creare una nuova pagina che contenga tutte le categorie di prodotti disponibili
+step:
+    - creare un nuovo componente 'paginaCategorie' (che conterrà tutte le categorie)
+    - aggiornare l'app routing in modo che la rotta 'categorie' porti alla pagina delle categorie
+    - creare un nuovo componente 'categoria' che rappresenta la categoria (simile, ma non uguale, a prodottoComponent)
+    - fare in modo che al click su una categoria si venga reindirizzati alla pagina home con i prodotti filtrati per categoria
+
+info utili:
+endpoint per le categorie : "https://dummyjson.com/products/categories"
+endpoint per i prodotti di una singola categoria : "https://dummyjson.com/products/category/{nomeCategoria}"
+    es: "https://dummyjson.com/products/category/smartphones"

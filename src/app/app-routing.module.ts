@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PaginaCategorieComponent } from './pagina-categorie/pagina-categorie.component';
 import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
 
 const routes: Routes = [
@@ -11,12 +12,20 @@ const routes: Routes = [
     component: PaginaProdottoComponent
   },
   {
+    path:'home/categorie/:categoria',
+    component:HomeComponent
+  },
+  {
     path:'home/:ricerca',
     component:HomeComponent
   },
   {
     path:'home',
     component:HomeComponent
+  },
+  {
+    path:'categorie',
+    component:PaginaCategorieComponent
   },
   {
     path:'',

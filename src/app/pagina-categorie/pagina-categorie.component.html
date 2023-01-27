@@ -1,0 +1,10 @@
+<h1>Categorie di prodotti</h1>
+<div *ngIf="!loading" class="row">
+    <app-categoria 
+    class="col-md-3 mb-2"
+    *ngFor="let cat of categorie; let i = index"  
+    [data]="{categoria:cat,index:i}">
+    
+    </app-categoria>
+</div>
+<mat-spinner *ngIf="loading"></mat-spinner>

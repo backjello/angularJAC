@@ -8,7 +8,12 @@ import { Observable } from 'rxjs';
 
 export class ApiService {
   constructor(private http:HttpClient) { }
-
+  
+  getProductsOfCategory(categoria:string): Observable<any>{
+    return this.http.get<any>(
+      "https://dummyjson.com/products/category/"+categoria)
+  }
+  
   getSingleProduct(id:string): Observable<any> {
     return this.http.get<any>(
       "https://dummyjson.com/products/"+id)

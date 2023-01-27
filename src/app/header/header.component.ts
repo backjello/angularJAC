@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarelloComponent } from '../carello/carello.component';
 
 @Component({
@@ -8,15 +8,18 @@ import { CarelloComponent } from '../carello/carello.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   ricerca:string | null = ""
 
-  constructor(private dialog: MatDialog, private router: ActivatedRoute) {
-    this.ricerca = router.snapshot.paramMap.get('ricerca')
-    console.log(this.ricerca);
+  constructor(
+    private dialog: MatDialog, 
+    private route: ActivatedRoute,
+    private router:Router) {
   }
 
-  ngOnInit(): void {
+  cerca(){
+    console.log(this.ricerca)
+    this.router.navigate(['/home/'+this.ricerca])
   }
 
   apriModal(tipo: string) {

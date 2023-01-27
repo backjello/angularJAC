@@ -1,0 +1,12 @@
+.categoria{
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    background-color: rgb(238, 238, 238);
+    text-align: center;
+}
+.categoria > span {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}

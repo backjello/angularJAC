@@ -22,6 +22,8 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { CarPreButtonComponent } from './car-pre-button/car-pre-button.component'
 import { NgImageSliderModule } from 'ng-image-slider';
+import { PaginaCategorieComponent } from './pagina-categorie/pagina-categorie.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { NgImageSliderModule } from 'ng-image-slider';
     NotFoundComponent,
     HomeComponent,
     HeaderComponent,
-    CarPreButtonComponent
+    CarPreButtonComponent,
+    PaginaCategorieComponent,
+    CategoriaComponent
   ],
   imports: [
     NgImageSliderModule,

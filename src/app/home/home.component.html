@@ -1,8 +1,10 @@
 
 <div class="row m-0">
   <div class="col-md-3">
-    <app-filtri [prodotti]="prodotti"
-    (filtriApplicati)="aggiornaProdotti($event)"
+    <app-filtri 
+      [prodotti]="prodotti"
+      [categoria]="categoria"
+      (filtriApplicati)="aggiornaProdotti($event)"
     ></app-filtri>
   </div>
   <div class="col-md-9 row">

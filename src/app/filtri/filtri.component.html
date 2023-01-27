@@ -1,4 +1,4 @@
-<div class="px-2">
+<div class="px-2" *ngIf="!loading">
     <h2>Filtri:</h2>
     <form [formGroup]="form" (ngSubmit)="filtra()">
         <mat-form-field >

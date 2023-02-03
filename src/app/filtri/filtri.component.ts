@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router  } from '@angular/router';
 import { ApiService } from '../api.service';
@@ -9,7 +9,7 @@ import { Prodotto } from '../prodotto/prodotto';
   templateUrl: './filtri.component.html',
   styleUrls: ['./filtri.component.css']
 })
-export class FiltriComponent {
+export class FiltriComponent implements OnInit {
 
   form! :any
   loading:boolean = true
@@ -42,10 +42,22 @@ export class FiltriComponent {
           this.filtra()
         }
       })
+    }
+    
+  ngOnInit(): void {
+    setTimeout(()=>{
+      if (this.route.snapshot.paramMap.get('ricerca')) {
+            this.filtra()
+        }
+    })
   }
 
+
   filtra() {
-    const formData = this.form?.value
+    let formData = this.form?.value
+    if(formData == undefined){
+      formData = {}
+    }
     const ricerca = this.route.snapshot.paramMap.get('ricerca')
     //prodottiF sono i prodotti filtrati
     const prodottiF = this.prodotti.filter((prod: Prodotto) => {
@@ -72,6 +84,8 @@ export class FiltriComponent {
 
       return categoria && prezzoMin && prezzoMax && rating && search
     })
+
+    console.log(prodottiF);
 
     this.filtriApplicati.emit(prodottiF)
   }

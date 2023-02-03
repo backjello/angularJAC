@@ -1,0 +1,18 @@
+.user-img{
+    font-size: 25px;
+}
+.body{
+    padding: 15px;
+
+}
+.username{
+    line-height: 25px;
+    vertical-align: text-bottom;
+}
+.testo{
+    padding-block: 5px;
+    border-bottom: 1px solid rgb(78, 78, 78);
+}
+.stelle{
+    color: rgb(255, 196, 0);
+}

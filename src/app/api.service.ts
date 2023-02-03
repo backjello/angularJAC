@@ -8,6 +8,13 @@ import { Observable } from 'rxjs';
 
 export class ApiService {
   constructor(private http:HttpClient) { }
+
+  getRecensioni():Observable<any>{
+    const skip = Math.round(Math.random() * 330)
+    return this.http.get<any>(
+      "https://dummyjson.com/comments?limit=10&skip="+skip
+    )
+  }
   
   getProductsOfCategory(categoria:string): Observable<any>{
     return this.http.get<any>(

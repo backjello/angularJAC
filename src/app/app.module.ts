@@ -24,6 +24,7 @@ import { CarPreButtonComponent } from './car-pre-button/car-pre-button.component
 import { NgImageSliderModule } from 'ng-image-slider';
 import { PaginaCategorieComponent } from './pagina-categorie/pagina-categorie.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { RecensioneComponent } from './recensione/recensione.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { CategoriaComponent } from './categoria/categoria.component';
     HeaderComponent,
     CarPreButtonComponent,
     PaginaCategorieComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    RecensioneComponent
   ],
   imports: [
     NgImageSliderModule,

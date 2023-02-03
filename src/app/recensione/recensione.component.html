@@ -1,0 +1,27 @@
+<div class="body">
+    <i class="bi bi-person-circle user-img"></i>
+    <span class="username">
+        {{data.user.username}}
+        -
+        <i>
+            {{date}}
+        </i>
+    </span>
+    <br>
+    <div class="stelle">
+        <!-- [].constructor(N) crea un array con N elementi -->
+        <i class="bi bi-star-fill" 
+            *ngFor="let stella of [].constructor(stelle)">
+        </i>
+    
+        <i class="bi bi-star-half"></i>
+
+        <i class="bi bi-star" 
+           *ngFor="let stella of [].constructor(5-stelle)" >
+        </i>
+    
+    </div>
+    <div class="testo">
+        {{data.body}}
+    </div>
+</div>

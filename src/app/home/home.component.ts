@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   aggiornaProdotti(filtrati: Prodotto[]) {
+    console.log(filtrati);
+    
     this.prodottiFiltrati = filtrati
   }
 

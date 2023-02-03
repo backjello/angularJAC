@@ -21,6 +21,13 @@
             [data]="prodotto"
         ></app-car-pre-button>
     </div>
+    <div class="col-md-12">
+        <app-recensione
+            *ngFor="let rec of recensioni"
+            [data]="rec"
+            >
+        </app-recensione>
+    </div>
 </div>
 
 <mat-spinner *ngIf="loading"></mat-spinner>

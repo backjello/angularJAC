@@ -1,0 +1,101 @@
+<div class="container">
+    <h1 class="text-center text-primary">
+        Registrazione
+    </h1>
+    <form [formGroup]="form" class="row g-0">
+        <div class="col-md-6">
+            <span>Nome:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Nome
+            </mat-label>
+            <input matInput type="text" formControlName="firstName" placeholder="Inserisci il nome">
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Cognome:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Cognome
+            </mat-label>
+            <input matInput type="text" formControlName="lastName" placeholder="Inserisci il cognome">
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Email:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Email
+            </mat-label>
+            <input matInput type="email" formControlName="email" formControlName="email"
+                placeholder="Inserisci la mail">
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Telefono:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Telefono
+            </mat-label>
+            <input matInput type="text" formControlName="phone" placeholder="Inserisci il telefono">
+        </mat-form-field>
+        <span>Data di nascita</span>
+        <mat-form-field>
+            <mat-label>
+                Giorno
+            </mat-label>
+            <input matInput type="number" formControlName="giorno" placeholder="Giorno di nascita">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                Mese
+            </mat-label>
+            <input matInput type="number" formControlName="mese" placeholder="mese di nascita">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                Anno
+            </mat-label>
+            <input matInput type="number" formControlName="anno" placeholder="Anno di nascita">
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Città di nascita:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Città di nascita
+            </mat-label>
+            <mat-select formControlName="city" placeholder="città di nascita">
+                <mat-option *ngFor="let c of citta">
+                    {{c}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="col-md-6">
+            <span>Password</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Password
+            </mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Inserisci la password">
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Conferma password</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Conferma password
+            </mat-label>
+            <input matInput type="password" formControlName="confermaPassword"
+                placeholder="Inserisci la password di conferma">
+        </mat-form-field>
+
+        <button matButton type="submit" color="success" class="btn btn-md btn-success">
+            Registrati
+        </button>
+
+    </form>
+</div>

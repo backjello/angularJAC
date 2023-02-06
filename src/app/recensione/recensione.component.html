@@ -11,13 +11,13 @@
     <div class="stelle">
         <!-- [].constructor(N) crea un array con N elementi -->
         <i class="bi bi-star-fill" 
-            *ngFor="let stella of [].constructor(stelle)">
+            *ngFor="let stella of [].constructor(arrotondaDifetto(stelle))">
         </i>
     
-        <i class="bi bi-star-half"></i>
+        <i class="bi bi-star-half" *ngIf="getDecimale(stelle) > 0" ></i>
 
         <i class="bi bi-star" 
-           *ngFor="let stella of [].constructor(5-stelle)" >
+           *ngFor="let stella of [].constructor(5-arrotondaEccesso(stelle))" >
         </i>
     
     </div>

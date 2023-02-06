@@ -26,6 +26,8 @@ import { PaginaCategorieComponent } from './pagina-categorie/pagina-categorie.co
 import { CategoriaComponent } from './categoria/categoria.component';
 import { RecensioneComponent } from './recensione/recensione.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
     RegistrazioneComponent
   ],
   imports: [
+    MatRadioModule,
+    MatCheckboxModule,
     NgImageSliderModule,
     MatInputModule,
     MatSelectModule,

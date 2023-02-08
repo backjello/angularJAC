@@ -1,11 +1,14 @@
-creare una nuova pagina che contenga tutte le categorie di prodotti disponibili
+creare una nuova pagina che contenga una form per la creazione di un nuovo prodotto
 step:
-    - creare un nuovo componente 'paginaCategorie' (che conterrà tutte le categorie)
-    - aggiornare l'app routing in modo che la rotta 'categorie' porti alla pagina delle categorie
-    - creare un nuovo componente 'categoria' che rappresenta la categoria (simile, ma non uguale, a prodottoComponent)
-    - fare in modo che al click su una categoria si venga reindirizzati alla pagina home con i prodotti filtrati per categoria
+    - creare un nuovo componente 'formProdotto' (che conterrà la form)
+    - aggiornare l'app routing in modo che la rotta 'creaProdotto' porti al componente creato al punto prima
+    - controllare che i valori inseriti dall'utente siano validi (es. il prezzo deve essere maggiore di 0,...)
+    - chiamare l'endpoint con i dati inseriti nella form per inserire il prodotto. 
+        in caso di successo mostrare nella pagina un messaggio (testo a piacere)
+    BONUS:
+    - nella form inserire un campo utilizzando il componente 'mat-chip'
 
 info utili:
-endpoint per le categorie : "https://dummyjson.com/products/categories"
-endpoint per i prodotti di una singola categoria : "https://dummyjson.com/products/category/{nomeCategoria}"
-    es: "https://dummyjson.com/products/category/smartphones"
+endpoint per inserimento prodotto : "ttps://dummyjson.com/products/add" (POST)
+endpoint per vedere i campi di prodotto : "https://dummyjson.com/products/1"
+docs: "https://dummyjson.com/docs"

@@ -1,15 +1,16 @@
 creare una nuova pagina che contenga una form per la creazione di un nuovo prodotto
 step:
     - creare un nuovo componente 'formProdotto' (che conterrà la form)
-    - aggiornare l'app routing in modo che la rotta 'creaProdotto' porti al componente creato al punto prima
+    - aggiornare l'app routing in modo che la rotta 'creaprodotto' porti al componente creato al punto prima
     - controllare che i valori inseriti dall'utente siano validi (es. il prezzo deve essere maggiore di 0,...)
     - chimare endpoint categorie per avere categorie esistenti
     - chiamare l'endpoint con i dati inseriti nella form per inserire il prodotto. 
         in caso di successo mostrare nella pagina un messaggio (testo a piacere)
     BONUS:
-    - nella form inserire un campo utilizzando il componente 'mat-chip'
+    - nella form inserire un campo utilizzando il componente 'mat-chips'
 
 info utili:
 endpoint per inserimento prodotto : "https://dummyjson.com/products/add" (POST)
 endpoint per vedere i campi di prodotto : "https://dummyjson.com/products/1"
 docs: "https://dummyjson.com/docs"
+mat-chips : "https://material.angular.io/components/chips/"

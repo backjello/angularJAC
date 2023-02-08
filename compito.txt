@@ -9,6 +9,6 @@ step:
     - nella form inserire un campo utilizzando il componente 'mat-chip'
 
 info utili:
-endpoint per inserimento prodotto : "ttps://dummyjson.com/products/add" (POST)
+endpoint per inserimento prodotto : "https://dummyjson.com/products/add" (POST)
 endpoint per vedere i campi di prodotto : "https://dummyjson.com/products/1"
 docs: "https://dummyjson.com/docs"

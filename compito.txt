@@ -3,6 +3,7 @@ step:
     - creare un nuovo componente 'formProdotto' (che conterrà la form)
     - aggiornare l'app routing in modo che la rotta 'creaProdotto' porti al componente creato al punto prima
     - controllare che i valori inseriti dall'utente siano validi (es. il prezzo deve essere maggiore di 0,...)
+    - chimare endpoint categorie per avere categorie esistenti
     - chiamare l'endpoint con i dati inseriti nella form per inserire il prodotto. 
         in caso di successo mostrare nella pagina un messaggio (testo a piacere)
     BONUS:

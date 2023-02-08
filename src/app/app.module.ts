@@ -25,6 +25,9 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { PaginaCategorieComponent } from './pagina-categorie/pagina-categorie.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { RecensioneComponent } from './recensione/recensione.component';
+import { RegistrazioneComponent } from './registrazione/registrazione.component';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -39,9 +42,12 @@ import { RecensioneComponent } from './recensione/recensione.component';
     CarPreButtonComponent,
     PaginaCategorieComponent,
     CategoriaComponent,
-    RecensioneComponent
+    RecensioneComponent,
+    RegistrazioneComponent
   ],
   imports: [
+    MatRadioModule,
+    MatCheckboxModule,
     NgImageSliderModule,
     MatInputModule,
     MatSelectModule,

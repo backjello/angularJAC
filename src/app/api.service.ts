@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,23 +7,36 @@ import { Observable } from 'rxjs';
 })
 
 export class ApiService {
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  getRecensioni():Observable<any>{
-    const skip = Math.round(Math.random() * 330)
+  getUtente(id: string | number): Observable<any> {
     return this.http.get<any>(
-      "https://dummyjson.com/comments?limit=10&skip="+skip
+      "https://dummyjson.com/users/" + id
     )
   }
-  
-  getProductsOfCategory(categoria:string): Observable<any>{
-    return this.http.get<any>(
-      "https://dummyjson.com/products/category/"+categoria)
+
+  registrazione(data: any): Observable<any> {
+    return this.http.post(
+      "https://dummyjson.com/users/add",
+      data
+    )
   }
-  
-  getSingleProduct(id:string): Observable<any> {
+
+  getRecensioni(): Observable<any> {
+    const skip = Math.round(Math.random() * 330)
     return this.http.get<any>(
-      "https://dummyjson.com/products/"+id)
+      "https://dummyjson.com/comments?limit=10&skip=" + skip
+    )
+  }
+
+  getProductsOfCategory(categoria: string): Observable<any> {
+    return this.http.get<any>(
+      "https://dummyjson.com/products/category/" + categoria)
+  }
+
+  getSingleProduct(id: string): Observable<any> {
+    return this.http.get<any>(
+      "https://dummyjson.com/products/" + id)
   }
 
   getProducts(): Observable<any> {
@@ -31,7 +44,7 @@ export class ApiService {
       "https://dummyjson.com/products")
   }
 
-  getCategories():Observable<string[]>{
+  getCategories(): Observable<string[]> {
     return this.http.get<any>(
       "https://dummyjson.com/products/categories"
     )

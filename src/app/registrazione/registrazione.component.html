@@ -1,0 +1,162 @@
+<div class="container">
+    <h1 class="text-center text-primary">
+        Registrazione
+    </h1>
+    <form [formGroup]="form" class="row g-0" (ngSubmit)="submit()" *ngIf="!registazioneOK">
+        <div class="col-md-6">
+            <span>Nome:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Nome
+            </mat-label>
+            <input matInput type="text" formControlName="firstName" placeholder="Inserisci il nome">
+            <mat-error>Inserisci un nome con meno di 20 lettere</mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Cognome:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Cognome
+            </mat-label>
+            <input matInput type="text" formControlName="lastName" placeholder="Inserisci il cognome">
+            <mat-error>Inserisci un nome con meno di 20 lettere</mat-error>
+        </mat-form-field>
+
+        <div class="col-md-6">
+            <span>Sesso:</span>
+        </div>
+        <mat-radio-group formControlName="gender" class="col-md-6">
+            <mat-radio-button value="male" class="mr-4">M</mat-radio-button>
+            <mat-radio-button value="female">F</mat-radio-button>
+        </mat-radio-group>
+
+        <div class="col-md-6">
+            <span>Email:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Email
+            </mat-label>
+            <input matInput type="email" formControlName="email" formControlName="email"
+                placeholder="Inserisci la mail">
+            <mat-error *ngIf="getField('email').errors?.required">
+                Inserisci la mail
+            </mat-error>
+            <mat-error *ngIf="getField('email').errors?.email">
+                Inserisci una mail valida
+            </mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Telefono:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Telefono
+            </mat-label>
+            <input matInput type="text" formControlName="phone" placeholder="Inserisci il telefono">
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Data di nascita</span>
+        </div>
+        <mat-form-field class="col-md-2">
+            <mat-label>
+                Giorno
+            </mat-label>
+            <input matInput type="number" min="1" max="31" formControlName="giorno" placeholder="Giorno di nascita">
+            <mat-error>Inserisci un giorno fra 1 e 31</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-2">
+            <mat-label>
+                Mese
+            </mat-label>
+            <input matInput type="number" min="1" max="12" formControlName="mese" placeholder="mese di nascita">
+            <mat-error>Inserisci un mese fra 1 e 12</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-md-2">
+            <mat-label>
+                Anno
+            </mat-label>
+            <input matInput type="number" min="1900" max="2023" formControlName="anno" placeholder="Anno di nascita">
+            <mat-error *ngIf="getField('anno').errors?.min">
+                Non sei davvero così vecchio
+            </mat-error>
+            <mat-error *ngIf="getField('anno').errors?.max">
+                Non sei nato nel futuro
+            </mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Città di nascita:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Città di nascita
+            </mat-label>
+            <mat-select formControlName="city" placeholder="città di nascita">
+                <mat-option [value]="c" *ngFor="let c of citta">
+                    {{c}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="col-md-6">
+            <span>Password</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Password
+            </mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Inserisci la password">
+            <mat-error>La password deve essere lunga almeno 8 caratteri</mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Conferma password</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Conferma password
+            </mat-label>
+            <input matInput type="password" formControlName="confermaPassword"
+                placeholder="Inserisci la password di conferma">
+        </mat-form-field>
+
+        <div class="col-md-1">
+            <mat-checkbox formControlName="privacy"></mat-checkbox>
+        </div>
+        <div class="col-md-11">
+            <span>
+                Accetto le normative sulla privacy e le condizioni di utilizzo.
+                Leggi le condizioni <a href="#">qui</a>
+            </span>
+            <br>
+            <span class="text-danger" 
+                *ngIf="getField('privacy').errors && submitted">
+                Accetta i termini
+            </span>
+        </div>
+
+        <div class="col-md-12" *ngIf="form.invalid && submitted">
+            <span class="text-danger">
+                Compila correttamente tutti i campi
+                <span *ngIf="getField('password').value != 
+                    getField('confermaPassword').value"> 
+                        Le password non corrispondono
+                </span>
+            </span>
+        </div>
+
+
+        <button matButton type="submit" color="success" class="btn btn-md btn-success">
+            Registrati
+        </button>
+
+    </form>
+    <div *ngIf="registazioneOK">
+        <h3>Complimenti {{nome}}! </h3>
+        <h5>Ti sei registrato con successo. Abbiamo mandato una mail di verifica a {{mail}}</h5>
+        <button routerLink="/home" class="btn btn-md btn-success">
+            Home
+        </button>
+    </div>
+</div>

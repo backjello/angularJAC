@@ -32,4 +32,29 @@ export class RecensioneComponent{
     console.log(dataTemp)
   }
 
+  arrotondaEccesso(val:number):number{
+    // 4 -> 4 , 4.5 -> 5
+    return Math.round(val)
+  }
+
+  arrotondaDifetto(val:number):number{
+    // 4 -> 4 , 4.5 -> 4
+    return Math.trunc(val)
+  }
+
+  getDecimale(val:number):number{
+    // 4 -> 0 , 4.5 -> 0.5
+    return val % 1
+  }
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -28,6 +28,9 @@ import { RecensioneComponent } from './recensione/recensione.component';
 import { RegistrazioneComponent } from './registrazione/registrazione.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormprodottoComponent } from './formprodotto/formprodotto.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +46,13 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     PaginaCategorieComponent,
     CategoriaComponent,
     RecensioneComponent,
-    RegistrazioneComponent
+    RegistrazioneComponent,
+    FormprodottoComponent,
+    LoginComponent
   ],
   imports: [
+    
+    MatChipsModule,
     MatRadioModule,
     MatCheckboxModule,
     NgImageSliderModule,

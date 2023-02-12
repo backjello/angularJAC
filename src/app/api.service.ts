@@ -9,6 +9,23 @@ import { Observable } from 'rxjs';
 export class ApiService {
   constructor(private http: HttpClient) { }
 
+  login(user:string,password:string): Observable<any>{
+    return this.http.post(
+      "https://dummyjson.com/auth/login",
+      {
+        username:user,
+        password:password
+      }
+    )
+  }
+
+  inserisciProdotto(prodotto:any): Observable<any> {
+    return this.http.post(
+      "https://dummyjson.com/products/add",
+      prodotto
+    )
+  }
+
   getUtente(id: string | number): Observable<any> {
     return this.http.get<any>(
       "https://dummyjson.com/users/" + id

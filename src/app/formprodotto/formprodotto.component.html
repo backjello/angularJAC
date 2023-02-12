@@ -1,0 +1,125 @@
+<div class="container">
+    <h1 class="text-center text-primary">
+        Registrazione
+    </h1>
+    <form [formGroup]="form" class="row g-0" (ngSubmit)="submit()" *ngIf="!inseritoConSuccesso">
+        <div class="col-md-6">
+            <span>Nome:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Nome
+            </mat-label>
+            <input matInput type="text" formControlName="title" placeholder="Inserisci il nome">
+            <mat-error>Inserisci un nome con meno di 50 lettere</mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Descrizione:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Descrizione
+            </mat-label>
+            <input matInput type="text" formControlName="description" placeholder="Inserisci la Descrizione">
+            <mat-error>Inserisci una Descrizione   con meno di 150 lettere</mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Prezzo:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Prezzo
+            </mat-label>
+            <input matInput type="number" formControlName="price" placeholder="Inserisci il prezzo">
+            <mat-error>Inserisci un valore valido</mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Sconto:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Sconto
+            </mat-label>
+            <input matInput type="number" formControlName="discountPercentage" placeholder="Inserisci lo sconto ">
+            <mat-error>Inserisci uno sconto valido</mat-error>
+        </mat-form-field> 
+         <div class="col-md-6">
+            <span>Quantità:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Quantità
+            </mat-label>
+            <input matInput type="number" formControlName="stock" placeholder="Inserisci la quantità">
+            <mat-error>Inserisci una quantità valida</mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Marca:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Marca
+            </mat-label>
+            <input matInput type="text" formControlName="brand" placeholder="Inserisci la marca">
+            <mat-error>Inserisci una marca valida</mat-error>
+        </mat-form-field>
+        <div class="col-md-6">
+            <span>Categoria:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>
+                Categoria
+            </mat-label>
+            <mat-select formControlName="category">
+                <mat-option *ngFor="let cat of categorie" [value]="cat">
+                    {{cat}}
+                </mat-option>
+            </mat-select>
+            <mat-error>Inserisci una marca valida</mat-error>
+        </mat-form-field>
+
+        <!-- <div class="col-md-12" *ngIf="form.invalid && submitted">
+            <span class="text-danger">
+                Compila correttamente tutti i campi
+                <span *ngIf="getField('password').value != 
+                    getField('confermaPassword').value"> 
+                        Le password non corrispondono
+                </span>
+            </span>
+        </div> -->
+        <div class="col-md-6">
+            <span>Caratteristiche:</span>
+        </div>
+        <mat-form-field class="col-md-6">
+            <mat-label>Caratteristiche</mat-label>
+            <mat-chip-list #chipList>
+                <mat-chip *ngFor="let car of caratteristiche"
+                (removed)="remove(car)">
+                    {{car}}
+                    <button matChipRemove>
+                        <i class="bi bi-x-circle"></i>
+                    </button>
+                </mat-chip>
+                <input
+                    placeholder="Nuova caratteristica..."
+                    formControlName="caratteristica"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+        </mat-form-field>
+
+
+        <button matButton type="submit" color="success" class="btn btn-md btn-success">
+            Aggiungi
+        </button>
+
+    </form>
+    <div *ngIf="inseritoConSuccesso">
+        <h3>Complimenti! </h3>
+        <h5>Il prodotto è stato inserito con successo</h5>
+        <button routerLink="/home" class="btn btn-md btn-success">
+            Home
+        </button>
+    </div>
+</div>

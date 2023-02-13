@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from '../api.service';
-import { Prodotto } from '../prodotto/prodotto';
-import { Recensione } from '../recensione/recensione';
+import { Prodotto } from 'src/app/componentes/prodotto/prodotto';
+import { Recensione } from 'src/app/componentes/recensione/recensione';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-pagina-prodotto',

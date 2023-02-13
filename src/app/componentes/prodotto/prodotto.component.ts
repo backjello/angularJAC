@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CarrelloStorageService } from '../carrello-storage.service';
-import { PreferitiService } from '../preferiti.service';
+import { PreferitiService } from 'src/app/services/preferiti.service';
+import { CarrelloStorageService } from '../../services/carrello-storage.service';
 import { Prodotto } from './prodotto';
 
 @Component({

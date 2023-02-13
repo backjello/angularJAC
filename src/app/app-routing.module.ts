@@ -1,14 +1,14 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './auth.guard';
-import { FormprodottoComponent } from './formprodotto/formprodotto.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { PaginaCategorieComponent } from './pagina-categorie/pagina-categorie.component';
-import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
-import { RegistrazioneComponent } from './registrazione/registrazione.component';
+import { AuthGuard } from './generic/auth.guard';
+import { FormprodottoComponent } from './pages/formprodotto/formprodotto.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { PaginaCategorieComponent } from './pages/pagina-categorie/pagina-categorie.component';
+import { PaginaProdottoComponent } from './pages/pagina-prodotto/pagina-prodotto.component';
+import { RegistrazioneComponent } from './pages/registrazione/registrazione.component';
 
 const routes: Routes = [
   {

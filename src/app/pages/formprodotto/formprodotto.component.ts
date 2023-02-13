@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { ApiService } from '../api.service';
 import { ENTER } from '@angular/cdk/keycodes'
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-formprodotto',

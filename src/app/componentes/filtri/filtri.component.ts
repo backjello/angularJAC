@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router  } from '@angular/router';
-import { ApiService } from '../api.service';
+import { ApiService } from 'src/app/services/api.service';
 import { Prodotto } from '../prodotto/prodotto';
 
 @Component({

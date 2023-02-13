@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../api.service';
-import { Prodotto } from '../prodotto/prodotto';
+import { Prodotto } from 'src/app/componentes/prodotto/prodotto';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-home',

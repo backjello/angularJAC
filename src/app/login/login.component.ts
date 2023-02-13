@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 import { TokenService } from '../token.service';
 
@@ -13,14 +14,17 @@ export class LoginComponent {
   form: any
   credenzialiErrate: boolean = false;
   erroreGenerico: boolean = false; 
+  message: string | null = ''
 
-  constructor(private fb: FormBuilder, private api: ApiService, private token:TokenService) {
+  constructor(private fb: FormBuilder, private api: ApiService, private token:TokenService,
+    private route:ActivatedRoute) {
 
     this.form = fb.group({
       email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     })
-
+    
+    this.message = this.route.snapshot.paramMap.get('error')
   }
 
   submit() {

@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProdottoComponent } from './prodotto/prodotto.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatDialogModule } from '@angular/material/dialog';
@@ -14,8 +14,8 @@ import { MatTableModule } from "@angular/material/table"
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FiltriComponent } from './filtri/filtri.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input'
-import {MatSelectModule} from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input'
+import { MatSelectModule } from '@angular/material/select';
 import { PaginaProdottoComponent } from './pagina-prodotto/pagina-prodotto.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
@@ -29,8 +29,10 @@ import { RegistrazioneComponent } from './registrazione/registrazione.component'
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormprodottoComponent } from './formprodotto/formprodotto.component';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import { LoginComponent } from './login/login.component';
+import { TokenInterceptor } from './token.interceptor';
+import { ErrorInterceptor } from './error.interceptor';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,7 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   imports: [
-    
+
     MatChipsModule,
     MatRadioModule,
     MatCheckboxModule,
@@ -71,7 +73,10 @@ import { LoginComponent } from './login/login.component';
     MatProgressSpinnerModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

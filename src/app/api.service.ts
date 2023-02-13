@@ -21,7 +21,7 @@ export class ApiService {
 
   inserisciProdotto(prodotto:any): Observable<any> {
     return this.http.post(
-      "https://dummyjson.com/products/add",
+      "https://dummyjson.com/auth/products/add",
       prodotto
     )
   }

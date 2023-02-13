@@ -33,6 +33,9 @@ import { TokenInterceptor } from './generic/token.interceptor';
 import { FormprodottoComponent } from './pages/formprodotto/formprodotto.component';
 import { PaginaCategorieComponent } from './pages/pagina-categorie/pagina-categorie.component';
 import { RegistrazioneComponent } from './pages/registrazione/registrazione.component';
+import { ChatpageComponent } from './pages/chatpage/chatpage.component';
+import { MessageComponent } from './componentes/message/message.component';
+import { ChatComponent } from './componentes/chat/chat.component';
 
 
 @NgModule({
@@ -51,7 +54,10 @@ import { RegistrazioneComponent } from './pages/registrazione/registrazione.comp
     RecensioneComponent,
     RegistrazioneComponent,
     FormprodottoComponent,
-    LoginComponent
+    LoginComponent,
+    ChatpageComponent,
+    ChatComponent,
+    MessageComponent
   ],
   imports: [
 

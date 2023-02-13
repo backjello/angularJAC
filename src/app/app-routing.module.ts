@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './generic/auth.guard';
+import { ChatpageComponent } from './pages/chatpage/chatpage.component';
 import { FormprodottoComponent } from './pages/formprodotto/formprodotto.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -11,6 +12,11 @@ import { PaginaProdottoComponent } from './pages/pagina-prodotto/pagina-prodotto
 import { RegistrazioneComponent } from './pages/registrazione/registrazione.component';
 
 const routes: Routes = [
+  {
+    path:'chat',
+    canActivate:[AuthGuard],
+    component:ChatpageComponent
+  },
   {
     path:'login',
     component:LoginComponent

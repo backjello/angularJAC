@@ -6,6 +6,7 @@ import { Prodotto } from '../componentes/prodotto/prodotto';
   providedIn: 'root'
 })
 export class PreferitiService {
+  
   rimuovi(data: Prodotto) {
     let indice = this.inPreferiti(data.id)
     const preferiti = this.leggi()

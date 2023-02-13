@@ -1,0 +1,28 @@
+.messaggio{
+    padding-inline: 10px;
+    padding-top:10px;
+    margin-inline: 10px;
+    margin-block: 30px;
+    max-width: 50%;
+    border-radius: 10px;
+   
+}
+.ricevuto{
+    border-bottom-left-radius: 0;
+    background-color: rgb(255, 248, 175);
+}
+.inviato{
+    border-bottom-right-radius: 0;
+    background-color: rgb(255, 250, 199);   
+    margin-left: 50%;
+}
+
+.messaggio .testo{
+    font-size: 12px;
+}
+.messaggio .data{
+    height: 20px;
+    text-align: right;
+    font-size: 8px;
+    color: gray;
+}

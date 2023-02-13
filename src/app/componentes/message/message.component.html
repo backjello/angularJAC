@@ -1,0 +1,10 @@
+<div >
+    <div class="messaggio" [ngClass]="data.ricevuto ? 'ricevuto' : 'inviato'">
+        <div class="testo"> <!-- testo del messaggio -->
+            {{data.testo}}
+        </div>
+        <div class="data"> <!-- data del messaggio -->
+            {{data.data}}
+        </div>
+    </div>
+</div>

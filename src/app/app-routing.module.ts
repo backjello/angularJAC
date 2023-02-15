@@ -14,7 +14,7 @@ import { RegistrazioneComponent } from './pages/registrazione/registrazione.comp
 const routes: Routes = [
   {
     path:'chat',
-    canActivate:[AuthGuard],
+    // canActivate:[AuthGuard],
     component:ChatpageComponent
   },
   {

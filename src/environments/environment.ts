@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  socketURL:"http://3.67.5.131:3333/", // "ws://localhost:3000"
 };
 
 /*

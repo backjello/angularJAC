@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class LoginComponent {
   message: string | null = ''
 
   constructor(private fb: FormBuilder, private api: ApiService, private token:TokenService,
-    private route:ActivatedRoute) {
+    private router:Router,
+    private route:ActivatedRoute, private localStorage:LocalstorageService) {
 
     this.form = fb.group({
       email: ['', [Validators.required]],
@@ -35,6 +37,8 @@ export class LoginComponent {
       next : (res) => { // solo in caso di successo (codice 2XX)
         console.log(res);
         this.token.setToken(res.token) //setto il token
+        this.localStorage.save(res,'utente')
+        this.router.navigate(['/home'])
       },
       error: (err) => { // solo per errore, codici 4XX e 5XX
         console.log(err);

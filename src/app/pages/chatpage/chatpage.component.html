@@ -1,8 +1,12 @@
 <div>
-
     <h1>le tue CHAT</h1>
+    <h4 *ngFor="let c of connessi">
+        {{c}}
+    </h4>
     <div>
         <app-chat></app-chat>
     </div>
-
+    <div>
+        <app-sendmessage></app-sendmessage>
+    </div>
 </div>

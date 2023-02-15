@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SocketService } from 'src/app/services/socket.service';
 
 @Component({
   selector: 'app-chatpage',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatpageComponent implements OnInit {
 
-  constructor() { }
+  connessi:string[]=[]
+
+  constructor(private socket :SocketService) { 
+    socket.newMessage.subscribe((res)=>{
+      console.log(res);
+    })
+    socket.personeConnesse.subscribe((res)=>{
+      this.connessi = res
+    })
+  }
 
   ngOnInit(): void {
   }

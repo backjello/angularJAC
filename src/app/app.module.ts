@@ -36,7 +36,13 @@ import { RegistrazioneComponent } from './pages/registrazione/registrazione.comp
 import { ChatpageComponent } from './pages/chatpage/chatpage.component';
 import { MessageComponent } from './componentes/message/message.component';
 import { ChatComponent } from './componentes/chat/chat.component';
+import { SendmessageComponent } from './componentes/sendmessage/sendmessage.component';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { environment } from 'src/environments/environment';
+import { UtenteheaderComponent } from './componentes/utenteheader/utenteheader.component';
 
+
+const config: SocketIoConfig = { url: environment.socketURL, options: {} };
 
 @NgModule({
   declarations: [
@@ -57,10 +63,12 @@ import { ChatComponent } from './componentes/chat/chat.component';
     LoginComponent,
     ChatpageComponent,
     ChatComponent,
-    MessageComponent
+    MessageComponent,
+    SendmessageComponent,
+    UtenteheaderComponent
   ],
   imports: [
-
+    SocketIoModule.forRoot(config),
     MatChipsModule,
     MatRadioModule,
     MatCheckboxModule,

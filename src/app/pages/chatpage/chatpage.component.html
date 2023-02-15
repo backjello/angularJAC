@@ -1,12 +1,11 @@
-<div>
-    <h1>le tue CHAT</h1>
-    <h4 *ngFor="let c of connessi">
-        {{c}}
-    </h4>
-    <div>
-        <app-chat></app-chat>
+<div class="row g-0">
+    <h1 class="col-12">le tue CHAT</h1>
+    <div class="col-4">
+        <div *ngFor="let persona of persone" (click)="setChat(persona)">
+            {{persona}}
+        </div>
     </div>
-    <div>
-        <app-sendmessage></app-sendmessage>
+    <div class="col-8">
+        <app-chat [destinatario]="chatAperta" ></app-chat>
     </div>
 </div>

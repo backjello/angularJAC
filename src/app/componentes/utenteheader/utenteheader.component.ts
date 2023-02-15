@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 
 @Component({
@@ -8,12 +9,19 @@ import { LocalstorageService } from 'src/app/services/localstorage.service';
 })
 export class UtenteheaderComponent {
 
-  utente:any={}
+  constructor(private localStorage: LocalstorageService, private router:Router) {}
 
-  constructor(private localStorage:LocalstorageService) {
-    this.utente = this.localStorage.read('utente')
+  logout(){
+    this.localStorage.save('','utente')
+    this.localStorage.save('','token')
+    // compatibilità con browser
+    localStorage.removeItem('utente')
+    localStorage.removeItem('token')
+    this.router.navigate(['/home'])
   }
 
-
+  get utente(){
+    return this.localStorage.read('utente')
+  }
 
 }

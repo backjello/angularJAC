@@ -1,32 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { Message } from '../models/message';
+import { LocalstorageService } from './localstorage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocketService {
-  newMessage = this.socket.fromEvent<Message>('message')
+
   personeConnesse = this.socket.fromEvent<string[]>('connected')
+  messaggi = this.socket.fromEvent<any>('message')
 
-  constructor(private socket: Socket,) { 
+  nome:string=""
+
+  constructor(private socket:Socket, private localStorage:LocalstorageService){
     socket.connect()
-    socket.emit('join',localStorage.getItem('nome'))
-    setTimeout(() => {
-      this.socket.emit('message',
-      { 
-        destinatario: 'gino',
-        mittente: localStorage.getItem('nome'),
-        messaggio:'ciao sono '+localStorage.getItem('nome'),
-      }
-      )
-    }, 5000);
+    this.nome = this.localStorage.read('utente').firstName
+    socket.emit("join",this.nome)
   }
 
-  send(action: string) {
-    let data={
-      action:action
-    }
-    this.socket.emit('message/update', data);
+  sendMessage(messaggio:Message){
+    this.socket.emit("message",messaggio)
   }
+
 }

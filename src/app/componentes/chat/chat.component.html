@@ -2,12 +2,18 @@
     <div class="intestazione"> <!-- intestazione con immagine e nome dello user -->
         <img [src]="user.image">
         <div class="nome">
-            <span>{{user.nome}}</span>
+            <span>{{destinatario}}</span>
         </div>
     </div>
     <div> <!-- tutti i messaggi -->
         <app-message *ngFor="let mes of messaggi" [data]="mes" >
 
         </app-message>
+    </div>
+    <div>
+        
+        <button class="btn btn-primary" (click)="mandaMessaggio()">
+            INVIA
+        </button>
     </div>
 </div>

@@ -8,15 +8,18 @@ import { SocketService } from 'src/app/services/socket.service';
 })
 export class ChatpageComponent implements OnInit {
 
-  connessi:string[]=[]
+  persone: string[] =[]
+  chatAperta:string = ""
 
-  constructor(private socket :SocketService) { 
-    socket.newMessage.subscribe((res)=>{
-      console.log(res);
-    })
+  constructor(private socket : SocketService) { 
     socket.personeConnesse.subscribe((res)=>{
-      this.connessi = res
+      console.log(res)
+      this.persone = res
     })
+  }
+
+  setChat(persona:string){
+    this.chatAperta = persona
   }
 
   ngOnInit(): void {

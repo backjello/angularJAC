@@ -1,1 +1,18 @@
-<p>utenteheader works!</p>
+<div class="d-inline mx-4" [matMenuTriggerFor]="menu"> <!-- mostriamo in riga, senza andare a capo -->
+    <img [src]="utente.image">
+    <span>{{utente.username}}</span>
+</div>
+<mat-menu #menu="matMenu" class="px-2">
+    <div routerLink="/chat">
+        <i class="bi bi-chat"></i>
+        Chat
+    </div>
+    <div routerLink="/creaprodotto">
+        <i class="bi bi-plus-circle"></i>
+        Nuovo Prodotto
+    </div>
+    <div (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i>
+        Logout
+    </div>
+</mat-menu>

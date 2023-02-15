@@ -2,5 +2,5 @@ export interface Message {
     nome?: string, // opzionale
     data: string,
     testo: string,
-    ricevuto: boolean
+    ricevuto?: boolean // opzionale
 }

@@ -62,10 +62,35 @@ io.on('connection', (socket,data,callback) => {
     socket.on('message' ,(data)=>{ 
         const destinatario = data.destinatario
         const mittente = data.mittente
-        const messaggio = data.messaggio
+        const testo = data.testo
         const dataOra = data.data
         console.log(`${mittente} scrive a ${destinatario}: "${messaggio}" - ${dataOra}`);
         io.in(destinatario).emit('message',data)
     }) 
     
 });
+
+
+
+
+// "endpoint" che posso chiamare
+
+// join :
+//     payload: nome dell'utente che si connette
+//     permette di unirsi alla chat (come online di whatsapp)
+
+// message :
+//     payload:
+//         destinatario: nome dell'utente che deve ricevere il messaggio
+//         mittente: chi ha mandato il messaggio
+//         testo: corpo del messaggio
+//         dataOra: data e orario del message
+
+
+// messaggi che può mandare il Server:
+
+// connected:
+//     invia la lista delle persone connesse a tutti
+
+// message:
+//     quando arriva un messaggio lo inoltra al destinatario

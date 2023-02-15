@@ -36,13 +36,12 @@ import { RegistrazioneComponent } from './pages/registrazione/registrazione.comp
 import { ChatpageComponent } from './pages/chatpage/chatpage.component';
 import { MessageComponent } from './componentes/message/message.component';
 import { ChatComponent } from './componentes/chat/chat.component';
-import { SendmessageComponent } from './componentes/sendmessage/sendmessage.component';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { environment } from 'src/environments/environment';
 import { UtenteheaderComponent } from './componentes/utenteheader/utenteheader.component';
+import { MatMenuModule} from '@angular/material/menu'
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
-
-const config: SocketIoConfig = { url: environment.socketURL, options: {} };
+//                                              ip:port
+const config: SocketIoConfig = { url: "http://3.67.5.131:3333/", options: {} };
 
 @NgModule({
   declarations: [
@@ -64,10 +63,10 @@ const config: SocketIoConfig = { url: environment.socketURL, options: {} };
     ChatpageComponent,
     ChatComponent,
     MessageComponent,
-    SendmessageComponent,
     UtenteheaderComponent
   ],
   imports: [
+    MatMenuModule,
     SocketIoModule.forRoot(config),
     MatChipsModule,
     MatRadioModule,

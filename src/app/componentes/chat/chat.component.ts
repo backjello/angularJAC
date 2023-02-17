@@ -17,19 +17,10 @@ export class ChatComponent{
 
   @Input() destinatario:string=""
 
-  messaggi:Message[] = [
-    // {
-    //   data: '2022-02-13 12:07:00',
-    //   nome: 'mario',
-    //   testo: 'Ciao, come stai ?',
-    //   ricevuto: true
-    // },
-  ]
+  @Input() messaggi:Message[] = []
 
   constructor(private socket:SocketService, private localStorage:LocalstorageService) {
-    this.socket.messaggi.subscribe((res)=>{
-      this.messaggi.push(res)
-    })
+  
   }
 
   mandaMessaggio(){
@@ -44,8 +35,5 @@ export class ChatComponent{
     this.socket.sendMessage(messaggio)
 
   }
-
-
-
 
 }

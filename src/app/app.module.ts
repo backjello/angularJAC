@@ -41,7 +41,7 @@ import { MatMenuModule} from '@angular/material/menu'
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
 //                                              ip:port
-const config: SocketIoConfig = { url: "http://3.67.5.131:3333/", options: {} };
+const config: SocketIoConfig = { url: "http://3.67.5.131:3333/",};
 
 @NgModule({
   declarations: [

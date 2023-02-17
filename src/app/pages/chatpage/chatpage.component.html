@@ -6,6 +6,7 @@
         </div>
     </div>
     <div class="col-8">
-        <app-chat [destinatario]="chatAperta" ></app-chat>
+        <app-chat [destinatario]="chatAperta" 
+        [messaggi]="getMessaggiFiltrati(chatAperta)" ></app-chat>
     </div>
 </div>

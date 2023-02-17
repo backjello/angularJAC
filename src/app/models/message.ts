@@ -4,4 +4,5 @@ export interface Message {
     data: string,
     testo: string,
     ricevuto?: boolean // opzionale
+    letto?: boolean // indica se il messaggio è stato letto o no
 }

@@ -1,3 +1,29 @@
+/* .input{
+    position: fixed;
+    bottom: 10px;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    width: 66%;
+}
+.testo{
+    border: none;
+    height: 100%;
+    width: 100%; 
+}
+.testo:focus, .testo:focus-visible{
+    outline: none !important; 
+}
+.input button{
+    float: right; 
+    margin-right: 30px;
+} */
+
+
+
+
+
+
+
 .intestazione{
     background: linear-gradient(90deg, rgb(233, 233, 233) 10%,rgb(255, 208, 0) 100%);
     padding: 15px;

@@ -2,11 +2,19 @@
     <h1 class="col-12">le tue CHAT</h1>
     <div class="col-4">
         <div *ngFor="let persona of persone" (click)="setChat(persona)">
+            <i class="bi bi-circle-fill" 
+                *ngIf="notificheDa.includes(persona)"></i>
             {{persona}}
         </div>
     </div>
-    <div class="col-8">
+    <div class="col-8" *ngIf="chatAperta != ''">
         <app-chat [destinatario]="chatAperta" 
         [messaggi]="getMessaggiFiltrati(chatAperta)" ></app-chat>
+    </div>
+    <!-- se non c'è nessuna chat aperta mostro un testo che avvisa l'utente di scegliere una chat -->
+    <div class="col-8" *ngIf="chatAperta == ''">
+        <h1> 
+            Scegli una chat per mandare dei messaggi
+        </h1>
     </div>
 </div>

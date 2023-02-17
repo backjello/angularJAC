@@ -16,24 +16,23 @@ export class ChatComponent{
   }
 
   @Input() destinatario:string=""
-
   @Input() messaggi:Message[] = []
 
-  constructor(private socket:SocketService, private localStorage:LocalstorageService) {
-  
-  }
+  testoMessaggio:string = ""
+
+  constructor(private socket:SocketService, private localStorage:LocalstorageService) {}
 
   mandaMessaggio(){
     const nome = this.localStorage.read('utente').firstName
 
     const messaggio : Message = {
-      data :  "2022-02-15 12:45", // data del messasggio
+      data : new Date().toISOString() , // data del messasggio
       nome : this.destinatario, //destinatario messaggio
-      testo : "Ciao sono "+nome, // corpo del messaggio
+      testo : this.testoMessaggio, // corpo del messaggio
     }
-
+    this.testoMessaggio = ""
+    this.messaggi.push(messaggio)
     this.socket.sendMessage(messaggio)
-
   }
 
 }

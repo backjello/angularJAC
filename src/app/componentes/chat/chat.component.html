@@ -10,9 +10,10 @@
 
         </app-message>
     </div>
-    <div>
-        
-        <button class="btn btn-primary" (click)="mandaMessaggio()">
+    <div class="input">
+        <input class="mr-4 testo" type="text" [(ngModel)]="testoMessaggio"> 
+        <!-- testoMessaggio sarà sempre uguale al valore dell'input -->
+        <button class="btn btn-primary" (click)="mandaMessaggio()" >
             INVIA
         </button>
     </div>

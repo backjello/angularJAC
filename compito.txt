@@ -2,6 +2,7 @@ creare un nuova pagina che contenga gli ordini effettuati dall'utente
 step:
     - creare un nuovo componente paginaOrdini (accessibile solo se loggati)
     - richiedere gli ordini al BE (https://dummyjson.com/carts/user/{ID-UTENTE})
+        utenti che hanno degli ordini (1,5,13,15,26)
     - per ogni ordine richiedere al BE i dati dei prodotti nell'ordine 
         (es immagine,categoria, ...)
     - all'interno di questa pagina inserire una mat-table che visualizzi gli ordini

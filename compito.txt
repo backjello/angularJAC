@@ -1,8 +1,9 @@
-creare un nuovo componente per rappresentare i dati di un utente loggato
+creare un nuova pagina che contenga gli ordini effettuati dall'utente
 step:
-    - salvare nel local storage i dati dell'utente al momento della login
-    - aggiornare l'header in modo che abbia i dati dell'utente se loggato (nome,cognome e immagine profilo)
-    - creare un menù con voci (ordini, logout) che si apra al click sul componente creato al punto prima
+    - creare un nuovo componente paginaOrdini (accessibile solo se loggati)
+    - richiedere gli ordini al BE (https://dummyjson.com/carts/user/{ID-UTENTE})
+    - per ogni ordine richiedere al BE i dati dei prodotti nell'ordine 
+        (es immagine,categoria, ...)
+    - all'interno di questa pagina inserire una mat-table che visualizzi gli ordini
+        con i dettagli dei prodotti
 
-info utili:
-menu : https://material.angular.io/components/menu/overview

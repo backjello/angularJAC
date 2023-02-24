@@ -1,9 +1,8 @@
 <div class="row g-0">
     <h1 class="col-12">le tue CHAT</h1>
     <div class="col-4">
-        <div *ngFor="let persona of persone" (click)="setChat(persona)">
-            <i class="bi bi-circle-fill" 
-                *ngIf="notificheDa.includes(persona)"></i>
+        <div  class="pl-4" *ngFor="let persona of persone" (click)="setChat(persona)">
+            <i class="bi bi-circle-fill" ></i>
             {{persona}}
         </div>
     </div>

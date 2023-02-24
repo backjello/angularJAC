@@ -13,39 +13,68 @@ export class ChatpageComponent{
   persone: string[] =[]
   chatAperta:string = ""
   messaggi:Message[]=[]
-  notificheDa:string[] = [] // contiene tutte le persone dalle quali ricevo una notifica
+  // contiene tutte le persone dalle quali ricevo una notifica e il numero di notifiche
+  notificheDa: { nome: string, tot: number }[] = [] 
 
-  constructor(private socket : SocketService, private localStorage:LocalstorageService) { 
-   
+  constructor(private socket : SocketService, private localStorage:LocalstorageService) {    
     const vecchieChat = this.localStorage.read('messaggi')
     if(vecchieChat.length > 0){
       this.messaggi = vecchieChat
+      this.setNotifiche()
     }
 
     socket.personeConnesse.subscribe((res)=>{
       console.log(res)
       this.persone = res
     })
+
     this.socket.messaggi.subscribe((res:Message)=>{ // funzione che ascolta l'arrivo dei messaggi
       res.letto = false // segno che il messaggio non è stato letto
       this.messaggi.push(res) // aggiungo il messaggio appena ricevuto agli altri
       this.setNotifiche()
-      this.localStorage.save(this.messaggi,'messaggi') // salvo tutti i messaggi nel localstorage
+      this.salvaMessaggi()
     })
   }
 
+  salvaMessaggi(){
+    this.localStorage.save(this.messaggi,'messaggi') // salvo tutti i messaggi nel localstorage
+  }
+
   setNotifiche(){
+    this.notificheDa = [] // resettiamo l'array 
     this.messaggi.forEach((m:Message)=>{
-      if(m.letto == false){ // ho trovato un messaggio non letto
+      // controllo che il messaggio non sia letto e non mi sia stato mandato
+      // dalla persona conc cui ho una chat aperta
+      if(m.letto == false && this.chatAperta != m.mittente){ 
+        // ho trovato un messaggio non letto 
         // aggiungo la persona dalla quale ho ricevuto il messaggio alle notifiche
-        if(m.mittente)
-          this.notificheDa.push(m.mittente) 
+        if(m.mittente){
+          for (let i = 0; i < this.notificheDa.length; i++) {
+            const element = this.notificheDa[i] // singola persona nell'elenco delle notifiche
+            if( element.nome == m.mittente){
+              element.tot++
+              return              
+            }       
+          }
+          // è la prima notifica da questa persona, la aggiungo con una notifica
+          this.notificheDa.push({ nome: m.mittente, tot:1})
+        }
+      }
+      else{
+        m.letto = true
       }
     })
   }
 
   setChat(persona:string){
     this.chatAperta = persona
+    this.messaggi.forEach((m:Message)=>{
+      if(m.mittente == persona){
+        m.letto = true
+      }
+    })
+    this.setNotifiche()   // aggiorno lo stato delle notifiche
+    this.salvaMessaggi()  // aggiorno i messaggi salvati nel localstorage
   }
 
   getMessaggiFiltrati(nome:string){ //nome della persona con la quale chattiamo

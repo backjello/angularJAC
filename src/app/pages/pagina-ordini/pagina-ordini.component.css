@@ -1,0 +1,9 @@
+td img{
+    width: 50px;
+}
+td{
+    padding-inline: 5px;
+}
+table{
+    width: 100%;
+}

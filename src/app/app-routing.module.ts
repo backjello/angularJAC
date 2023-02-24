@@ -8,10 +8,16 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { PaginaCategorieComponent } from './pages/pagina-categorie/pagina-categorie.component';
+import { PaginaOrdiniComponent } from './pages/pagina-ordini/pagina-ordini.component';
 import { PaginaProdottoComponent } from './pages/pagina-prodotto/pagina-prodotto.component';
 import { RegistrazioneComponent } from './pages/registrazione/registrazione.component';
 
 const routes: Routes = [
+  {
+    path:"ordini",
+    canActivate:[AuthGuard],
+    component:PaginaOrdiniComponent
+  },
   {
     path:'chat',
     // canActivate:[AuthGuard],

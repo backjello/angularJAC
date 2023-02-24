@@ -9,6 +9,12 @@ import { Observable } from 'rxjs';
 export class ApiService {
   constructor(private http: HttpClient) { }
 
+  getOrdini(IDutente:number){
+    return this.http.get<any>(
+      "https://dummyjson.com/carts/user/"+IDutente
+    )
+  }
+
   login(user:string,password:string): Observable<any>{
     return this.http.post(
       "https://dummyjson.com/auth/login",

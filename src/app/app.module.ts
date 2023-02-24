@@ -39,6 +39,7 @@ import { ChatComponent } from './componentes/chat/chat.component';
 import { UtenteheaderComponent } from './componentes/utenteheader/utenteheader.component';
 import { MatMenuModule} from '@angular/material/menu'
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { PaginaOrdiniComponent } from './pages/pagina-ordini/pagina-ordini.component';
 
 //                                              ip:port
 const config: SocketIoConfig = { url: "http://3.67.5.131:3333/",};
@@ -63,7 +64,8 @@ const config: SocketIoConfig = { url: "http://3.67.5.131:3333/",};
     ChatpageComponent,
     ChatComponent,
     MessageComponent,
-    UtenteheaderComponent
+    UtenteheaderComponent,
+    PaginaOrdiniComponent
   ],
   imports: [
     MatMenuModule,

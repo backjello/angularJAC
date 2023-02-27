@@ -12,36 +12,54 @@ import { Prodotto } from '../prodotto/prodotto';
 })
 export class EsportaPDFComponent {
 
-  @Input() testoBottone:string = 'scarica PDF' 
-  @Input() data:Prodotto[] = []
+  @Input() testoBottone: string = 'scarica PDF'
+  @Input() data: Prodotto[] = []
   @Input() colonneDaMostrare: { nome: string, key: string }[] = [] // colonne da mostrare nella tabella del PDF
-  @Input() titolo:string = "" // titolo del PDF
+  @Input() titolo: string = "" // titolo del PDF
 
   constructor() { }
 
-  generaTabella(){
-    var tabella = { body: [] } 
-    var header = this.colonneDaMostrare // intestazione della tabella
-    var tableBody = []
-    this.data.forEach((prodotto:any) => {
+  generaTabella() {
+    var tabella: any = {}
+    var header: string[] = [] // intestazione della tabella
+    this.colonneDaMostrare.forEach((colonna) => {
+      header.push(colonna.nome)
+    });
+    var tableBody: any[] = []
+    this.data.forEach((prodotto: any) => {
       var riga: any[] = []
-      this.colonneDaMostrare.forEach((colonna)=>{
+      this.colonneDaMostrare.forEach((colonna) => {
         riga.push(prodotto[colonna.key])
       })
-      console.log(riga)
+      tableBody.push(riga)
     });
+    var body = [...[header], ...tableBody]
+    tabella.body = body
+    tabella = {
+      table : tabella,
+      headerRows: 1,
+      widths: [300, '*',],
+      noBorders: false,
+      style:'table' 
+    }
+    return tabella
   }
 
-  scaricaPDF(){
+  scaricaPDF() {
 
     var tabella = this.generaTabella()
 
     var document = {
       info: {
-        title: this.titolo 
+        title: this.titolo
       },
-      content : ['testo di prova'],
-    }    
+      content: [tabella],
+      // styles:{ 
+      //   table: { // come "classe" in css
+      //     margin: <Margins>[0, 0, 0, 10] 
+      //   }
+      // }
+    }
     pdfMake.createPdf(document).open()
   }
 

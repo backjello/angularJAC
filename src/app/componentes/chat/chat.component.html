@@ -6,7 +6,8 @@
         </div>
     </div>
     <div> <!-- tutti i messaggi -->
-        <app-message *ngFor="let mes of messaggi" [data]="mes" >
+        <!-- il nome dell'animazione si copia senza 'animation' che c'è alla fine -->
+        <app-message *ngFor="let mes of messaggi" [data]="mes" [@bounceInUpOnEnter] >
 
         </app-message>
     </div>

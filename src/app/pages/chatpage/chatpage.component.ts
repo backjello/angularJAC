@@ -80,5 +80,16 @@ export class ChatpageComponent{
   getMessaggiFiltrati(nome:string){ //nome della persona con la quale chattiamo
     return this.messaggi.filter((m)=> m.mittente == nome || m.nome == nome )
   }
-  
+  //dato il nome di una persona ritorna il numero di notifiche
+  getNnotifiche(persona:string){
+    
+    for (let i = 0; i < this.notificheDa.length; i++) {
+      const element = this.notificheDa[i];
+      if(element.nome == persona)
+        return element.tot // ritorno il numero di notifiche
+    }
+    // se non ho trovato la persona ritorno false
+    return false
+  }
+
 }

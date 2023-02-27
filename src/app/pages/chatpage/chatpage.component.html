@@ -2,7 +2,8 @@
     <h1 class="col-12">le tue CHAT</h1>
     <div class="col-4">
         <div  class="pl-4" *ngFor="let persona of persone" (click)="setChat(persona)">
-            <i class="bi bi-circle-fill" ></i>
+            <i [ngClass]=" 'bi bi-' + getNnotifiche(persona) + '-circle-fill' " 
+               *ngIf="getNnotifiche(persona) > 0"></i>
             {{persona}}
         </div>
     </div>

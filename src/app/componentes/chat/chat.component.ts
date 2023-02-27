@@ -2,11 +2,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Message } from 'src/app/models/message';
 import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { SocketService } from 'src/app/services/socket.service';
+import { bounceInUpOnEnterAnimation } from 'angular-animations';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.css'],
+  animations: [bounceInUpOnEnterAnimation()] //stesso nome che abbiamo messo nell'import + ()
 })
 export class ChatComponent{
 

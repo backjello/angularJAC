@@ -1,6 +1,13 @@
 <mat-spinner *ngIf="loading"></mat-spinner>
 
 <div *ngIf="!loading">
+    <h1>I tuoi ordini </h1>
+    <app-esporta-pdf 
+        [testoBottone]="'Scarica Report Ordini'"
+        [data]="prodotti"
+        [titolo]="'Report Ordini'"
+        [colonneDaMostrare]="colonnePerPDF">
+    </app-esporta-pdf>
     <table mat-table [dataSource]="prodotti" >
 
         <ng-container matColumnDef="img">

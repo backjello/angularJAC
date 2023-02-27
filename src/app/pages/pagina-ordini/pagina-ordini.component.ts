@@ -14,6 +14,14 @@ export class PaginaOrdiniComponent {
   prodotti:Prodotto[]=[] // tutti nell'ordine dell'utente
   colonneMostrate:string[] = ['img', 'nome', 'prezzo', 'quantita', 'totale'];
 
+  colonnePerPDF:{nome:string,key:string}[] = // il nome è quello che mostriamo nel PDF, la key è il valore da prendere
+  [ {nome:'nome',key:'title'},
+    {nome:'prezzo',key:'price'},
+    {nome:'quantita',key:'quantity'},
+    {nome:'sconto', key:'discountedPrice'},
+    {nome:'totale',key:'total'}
+  ] //tutti i campi da mostrare nel pdf
+
   constructor(
     private localStorage:LocalstorageService,
     private api:ApiService

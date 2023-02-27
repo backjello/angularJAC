@@ -46,6 +46,7 @@ import { DateOrStringPipe } from './pipes/date-or-string.pipe';
 import { ChangeCasePipe } from './pipes/change-case.pipe';
 import { ReduceTextPipe } from './pipes/reduce-text.pipe';
 import { EvidenziaDirective } from './directives/evidenzia.directive';
+import { EsportaPDFComponent } from './componentes/esporta-pdf/esporta-pdf.component';
 
 //                                              ip:port
 const config: SocketIoConfig = { url: "http://3.67.5.131:3333/",};
@@ -75,7 +76,8 @@ const config: SocketIoConfig = { url: "http://3.67.5.131:3333/",};
     DateOrStringPipe,
     ChangeCasePipe,
     ReduceTextPipe,
-    EvidenziaDirective
+    EvidenziaDirective,
+    EsportaPDFComponent
   ],
   imports: [
     MatMenuModule,

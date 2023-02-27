@@ -42,6 +42,10 @@ import { UtenteheaderComponent } from './componentes/utenteheader/utenteheader.c
 import { MatMenuModule} from '@angular/material/menu'
 import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { PaginaOrdiniComponent } from './pages/pagina-ordini/pagina-ordini.component';
+import { DateOrStringPipe } from './pipes/date-or-string.pipe';
+import { ChangeCasePipe } from './pipes/change-case.pipe';
+import { ReduceTextPipe } from './pipes/reduce-text.pipe';
+import { EvidenziaDirective } from './directives/evidenzia.directive';
 
 //                                              ip:port
 const config: SocketIoConfig = { url: "http://3.67.5.131:3333/",};
@@ -67,7 +71,11 @@ const config: SocketIoConfig = { url: "http://3.67.5.131:3333/",};
     ChatComponent,
     MessageComponent,
     UtenteheaderComponent,
-    PaginaOrdiniComponent
+    PaginaOrdiniComponent,
+    DateOrStringPipe,
+    ChangeCasePipe,
+    ReduceTextPipe,
+    EvidenziaDirective
   ],
   imports: [
     MatMenuModule,

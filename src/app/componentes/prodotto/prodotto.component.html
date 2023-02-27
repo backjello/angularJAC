@@ -10,11 +10,11 @@
     <mat-card-content [routerLink]="'/prodotto/'+data.id">
         <img [src]="data.thumbnail" class="anteprima">
         <div>
-            <p>{{mostraDescrizione()}}</p>
+            <p>{{data.description | reduceText : 50 }}</p>
         </div>
         <div class="row">
             <div class="col-md-3">Brand: </div>
-            <div class="col-md-9">{{data.brand}}</div>
+            <div class="col-md-9">{{data.brand | changeCase : 'lower'}}</div>
         </div>
         <div>
             <span [ngClass]="data.discountPercentage!=0 ?

@@ -1,12 +1,14 @@
-https://meet.google.com/dws-qokh-zif
+creare le seguenti pipe:
+    - ieriOggiDomani: pipe che data una data nel formato "AAAA-MM-GG" dica se 
+        quella data è passata, attuale o futura
+        es: {{"2023-03-01" | ieriOggiDomani }} -> "Oggi"
 
-creare un nuova pagina che contenga gli ordini effettuati dall'utente
-step:
-    - creare un nuovo componente paginaOrdini (accessibile solo se loggati)
-    - richiedere gli ordini al BE (https://dummyjson.com/carts/user/{ID-UTENTE})
-        utenti che hanno degli ordini (1,5,13,15,26)
-    - per ogni ordine richiedere al BE i dati dei prodotti nell'ordine 
-        (es immagine,categoria, ...)
-    - all'interno di questa pagina inserire una mat-table che visualizzi gli ordini
-        con i dettagli dei prodotti
+    - myCurrency: ricreare la CurrencyPipe già presente in angular
+        es: {{1200.341 | myCurrency : 'EUR' }} -> 1200,34€
 
+    - stampaArray: pipe che dato un array ne stampa i valori
+        es: numeri = [1,2,3,4,5] / {{numeri | stampaArray}} -> [1,2,3,4,5]
+        
+    - stampaOggetto: pipe che dato un oggetto ne stampa i campi e i valori
+        es: persona = {nome:'mario', cognome:'rossi'}
+            {{persona | stampaOggetto}} -> nome: mario, cognome: rossi 

@@ -12,3 +12,11 @@ creare le seguenti pipe:
     - stampaOggetto: pipe che dato un oggetto ne stampa i campi e i valori
         es: persona = {nome:'mario', cognome:'rossi'}
             {{persona | stampaOggetto}} -> nome: mario, cognome: rossi 
+
+creare le seguenti direttive:
+    - cambiaFontSize: direttiva che prende in input 
+        la dimesione del testo e la applica all'elemento
+    
+    - cambiaFontColor: direttiva che prende in input 
+        il colore del testo e lo cambia solo su hover
+    

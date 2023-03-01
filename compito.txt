@@ -10,8 +10,9 @@ creare le seguenti pipe:
         es: numeri = [1,2,3,4,5] / {{numeri | stampaArray}} -> [1,2,3,4,5]
         
     - stampaOggetto: pipe che dato un oggetto ne stampa i campi e i valori
+        i campi devono avere la prima lettera maiuscola
         es: persona = {nome:'mario', cognome:'rossi'}
-            {{persona | stampaOggetto}} -> nome: mario, cognome: rossi 
+            {{persona | stampaOggetto}} -> Nome: mario, Cognome: rossi 
 
 creare le seguenti direttive:
     - cambiaFontSize: direttiva che prende in input 
